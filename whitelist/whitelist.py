@@ -527,7 +527,8 @@ whitelist.add(
         "nid",
         "uid",
         "subject",
-        "hostname",
+        # TODO:  UPDATE comment SET hostname = "127.0.0.1";
+        "_sanitize:hostname",
         "changed",
         "status",
         "thread",
@@ -5430,7 +5431,8 @@ whitelist.add(
         "timestamp",
         "type",
         "referer",
-        "ip",
+        # TODO: UPDATE role_activity SET ip = "127.0.0.1";
+        "_sanitize:ip",
         "action",
         "link",
         "uri",
@@ -5779,7 +5781,8 @@ whitelist.add(
         "entity_type",
         "entity_id",
         "fingerprint",
-        "title",
+        # TODO: UPDATE sshkey SET title = "nobody@nomail.invalid";
+        "_sanitize:title",
         "value",
         "changed",
     ])
@@ -5919,7 +5922,8 @@ whitelist.add(
     columns=[
         "uid",
         "name",
-        "pass",
+        # TODO: UPDATE users SET pass= 'nope'
+        "_sanitize:pass",
         # UPDATE users SET mail = concat(name, '@sanitized.invalid');
         # http://drupalcode.org/project/infrastructure.git/blob/HEAD:/snapshot/common.staging.sql#l1
         "_sanitize:mail",
@@ -5932,7 +5936,8 @@ whitelist.add(
         # UPDATE users SET init = if(init LIKE 'drupal.org/user/%/edit', concat('staging.dev', init), mail); 
         # http://drupalcode.org/project/infrastructure.git/blob/HEAD:/snapshot/common.staging.sql#l2 
         "_sanitize:init",
-        "data",
+        # TODO: UPDATE users SET data = ''
+        "_sanitize:data",
         "created",
         "login",
         "signature_format",
