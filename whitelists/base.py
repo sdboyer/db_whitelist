@@ -5428,7 +5428,7 @@ whitelist.add(
         "timestamp",
         "type",
         "referer",
-        "_sanitize-ip:ip",
+        "_sanitize_ip:ip",
         "action",
         "link",
         "uri",
@@ -5542,6 +5542,7 @@ whitelist.add(
         "field_project",
         "author",
         "comment_count",
+        "last_comment_timestamp",
     ])
 
 whitelist.add(
