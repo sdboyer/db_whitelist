@@ -57,6 +57,10 @@ whitelist.update(
         "_sanitize_timestamp:access",
     ])
 
+whitelist.update(
+    table="_nodata:apachesolr_index_entities_node",
+)
+
 
 
 cleanup = """

@@ -1,9 +1,11 @@
 class Whitelist:
     def __init__(self):
         self.tabledata = dict()
+        self.tablehandlers = dict()
 
-    def add(self, table, columns):
+    def add(self, table, handler=None, columns):
         self.tabledata[table] = columns
+        self.tablehandlers[table] = handler
 
     def known_columns(self, table):
         known_plain = list()
@@ -19,7 +21,7 @@ class Whitelist:
     def process(self, table):
         known_columns = list()
         columns = self.table(table)
-        if '_nodata:' in self.tabledef(table):
+        if self.tabledef(table) == 'nodata':
             return
         for column in columns:
             if column[0] == '_' and ':' in column:
@@ -45,22 +47,17 @@ class Whitelist:
             function = function.lstrip('_')
             return function
 
+    # Return a table's columns. Useful when handlers and names were combined
     def table(self, table):
-        known_tables = self.tabledata.keys()
-        plain_tables = map(self.name_only, known_tables)
-        mapped_tables = dict(zip(plain_tables, known_tables))
-        if table in plain_tables:
-            return self.tabledata[mapped_tables[table]]
+        if table in self.tabledata.keys():
+            return self.tabledata[table]
         else:
             return False
 
     def tabledef(self, table):
         known_tables = self.tabledata.keys()
-        plain_tables = map(self.name_only, known_tables)
-        mapped_tables = dict(zip(plain_tables, known_tables))
-        if table in plain_tables:
-            return mapped_tables[table]
-
+        if table in known_tables:
+            return self.tablehandlers[table]
         else:
             return False
 
