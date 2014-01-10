@@ -27,6 +27,7 @@ If you are working with the following functionality, you are expected to create 
   * Issue subscriptions (flag_content)
   * Multiple e-mail address (multiple_email)
   * Tracker (tracker_node)
+  * User Profiles (profile_value)
 
 """
 
@@ -87,7 +88,10 @@ whitelist.add handler(
 )
 
 
-
+whitelist.add handler(
+  table="profile_value",
+  handler="nodata"
+)
 
 cleanup = """
   -- Get rid of unpublished/blocked nodes, users, comments and related data in other tables.
