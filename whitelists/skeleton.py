@@ -19,6 +19,10 @@ It is NOT suitable for work on:
   * git
   * packaging
   * solr
+
+Notes:
+
+Issue subscription data is not carried over from production. You must create youw own test data if you're working on this functionality.
 """
 
 #This is done in the base queries.
@@ -57,10 +61,20 @@ whitelist.update(
         "_sanitize_timestamp:access",
     ])
 
-whitelist.update(
-    table="_nodata:apachesolr_index_entities_node",
+whitelist.add_handler(
+    table="apachesolr_index_entities",
+    handler="nodata"
 )
 
+whitelist.add_handler(
+    table="apachesolr_index_entities_node",
+    handler="nodata"
+)
+
+whitelist.add handler(
+  table="flag_content",
+  handler="nodata"
+)
 
 
 cleanup = """
