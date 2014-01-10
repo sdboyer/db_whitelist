@@ -26,6 +26,7 @@ If you are working with the following functionality, you are expected to create 
 
   * Issue subscriptions (flag_content)
   * Multiple e-mail address (multiple_email)
+  * Tracker (tracker_node)
 
 """
 
@@ -79,6 +80,13 @@ whitelist.add handler(
   table="flag_content",
   handler="nodata"
 )
+
+whitelist.add handler(
+  table="tracker_node",
+  handler="nodata"
+)
+
+
 
 
 cleanup = """
