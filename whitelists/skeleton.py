@@ -22,7 +22,11 @@ It is NOT suitable for work on:
 
 Notes:
 
-Issue subscription data is not carried over from production. You must create youw own test data if you're working on this functionality.
+If you are working with the following functionality, you are expected to create your own test data. Production values are NOT included in this dump.
+
+  * Issue subscriptions (flag_content)
+  * Multiple e-mail address (multiple_email)
+
 """
 
 #This is done in the base queries.
