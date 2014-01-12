@@ -114,9 +114,15 @@ whitelist.add_handler(
   handler="select_by_project"
 )
 
-whitelist.add_handler()
+whitelist.add_handler(
   table="project_usage*"
   handler="select_by_project"
+)
+
+whitelist.add_handler()
+  table="pift*"
+  handler="select_by_project"
+)
 
 # Original queries to limit the size of the dataset
 
