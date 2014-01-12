@@ -70,12 +70,7 @@ whitelist.add_handler(
 # Trim the image to selected projects
 
 whitelist.add_handler(
-  table="search_api_db_project_issues_comments_comment_body_value",
-  handler="nodata"
-)
-
-whitelist.add_handler(
-  table="search_api_db_project_issues_body_value"
+  table="search_api*",
   handler="nodata"
 )
 
