@@ -67,6 +67,7 @@ whitelist.update(
         "_sanitize_timestamp:access",
     ])
 
+<<<<<<< HEAD
 whitelist.add_handler(
     table="apachesolr_index_entities",
     handler="nodata"

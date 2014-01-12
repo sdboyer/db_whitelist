@@ -3,7 +3,7 @@ class Whitelist:
         self.tabledata = dict()
         self.tablehandlers = dict()
 
-    def add(self, table, handler=None, columns):
+    def add(self, table, columns, handler=None):
         self.tabledata[table] = columns
         self.tablehandlers[table] = handler
 
@@ -54,6 +54,7 @@ class Whitelist:
         else:
             return False
 
+    # Legacy fetch the table's handlers
     def tabledef(self, table):
         known_tables = self.tabledata.keys()
         if table in known_tables:
@@ -66,14 +67,15 @@ class Whitelist:
         mapped_columns = dict(zip(plain_columns, columns))
         return mapped_columns
 
-    def update(self, table, columns):
+    def update(self, table, columns=[], handler='save'):
         table_desc = self.table(self.name_only(table)) #Store the current def
         print table_desc
-        old_key = self.tabledef(table)
-        del(self.tabledata[old_key])
+        del(self.tabledata[table])
         old_columns = self.columnmap(table_desc)
         new_columns = self.columnmap(columns)
         for column, value in new_columns.items():
             old_columns[column] = value
         self.tabledata[table] = old_columns.values()
+        if handler != 'save':
+            self.tablehandlers[table] = handler
         print self.tabledata[table] 
