@@ -77,6 +77,11 @@ whitelist.add_handler(
   handler="nodata"
 )
 
+whitelist.add_handler(
+  table="drupalorg_git_push*"
+  handler="nodata"
+)
+
 # Trim the image to selected projects
 
 whitelist.add_handler(
