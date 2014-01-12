@@ -79,6 +79,16 @@ whitelist.add_handler(
   handler="nodata"
 )
 
+whitelist.add_handler(
+  table="field_data*"
+  handler="select_by_project"
+)
+
+whitelist.add_handler(
+  table="field_revision*"
+  handler="select_by_project"
+)
+
 # Original queries to limit the size of the dataset
 
 cleanup = """
