@@ -48,3 +48,15 @@ whitelist.update(
     columns=[
         "title",
     ])
+
+whitelist.update(
+    table="users",
+    columns=[
+        "access",
+    ])
+
+whitelist.update(
+    table="users_access",
+    columns=[
+        "access",
+    ])

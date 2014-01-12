@@ -5978,7 +5978,7 @@ whitelist.add(
         "git_consent",
         "git_vetted",
         "git_disabled",
-        "access",
+        "_sanitize_timestamp:access",
         "picture",
     ])
 
@@ -5986,7 +5986,7 @@ whitelist.add(
     table="users_access", 
     columns=[
         "uid",
-        "access",
+        "_sanitize_timestamp:access",
     ])
 
 whitelist.add(

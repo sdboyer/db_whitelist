@@ -54,7 +54,6 @@ If you are working with the following functionality, you are expected to create 
   DELETE FROM profile_value WHERE fid IN (select fid FROM profile_field WHERE visibility in (1, 4));
 """
 
-
 whitelist.update(
     table="users",
     columns=[
@@ -67,7 +66,6 @@ whitelist.update(
         "_sanitize_timestamp:access",
     ])
 
-<<<<<<< HEAD
 whitelist.add_handler(
     table="apachesolr_index_entities",
     handler="nodata"
