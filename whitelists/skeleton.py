@@ -24,7 +24,7 @@ Notes:
 
 If you are working with the following functionality, you are expected to create your own test data. Production values are NOT included in this dump.
 
-  * Issue subscriptions (flag_content)
+  * Issue subscriptions (flag_content / flag_count)
   * Multiple e-mail address (multiple_email)
   * Tracker (tracker_node)
   * User Profiles (profile_value)
@@ -54,6 +54,11 @@ whitelist.add_handler(
 
 whitelist.add_handler(
   table="flag_content",
+  handler="nodata"
+)
+
+whitelist.add_handler(
+  table="flag_counts"
   handler="nodata"
 )
 
