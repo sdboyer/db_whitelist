@@ -124,8 +124,13 @@ whitelist.add_handler(
   handler="select_by_project"
 )
 
-whitelist.add_handler()
+whitelist.add_handler(
   table="pift*"
+  handler="select_by_project"
+)
+
+whitelist.add_handler(
+  table="taxonomy_index"
   handler="select_by_project"
 )
 
