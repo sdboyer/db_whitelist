@@ -67,12 +67,12 @@ whitelist.add_handler(
   handler="nodata"
 )
 
-# Trim the image to selected projects
-
 whitelist.add_handler(
   table="search_api*",
   handler="nodata"
 )
+
+# Trim the image to selected projects
 
 whitelist.add_handler(
   table="field_data*"
@@ -81,6 +81,16 @@ whitelist.add_handler(
 
 whitelist.add_handler(
   table="field_revision*"
+  handler="select_by_project"
+)
+
+whitelist.add_handler(
+  table="sampler_project*"
+  handler="select_by_project"
+)
+
+whitelist.add_handler(
+  table="sampler_sampler*"
   handler="select_by_project"
 )
 
