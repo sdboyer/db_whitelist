@@ -72,6 +72,11 @@ whitelist.add_handler(
   handler="nodata"
 )
 
+whitelist.add_handler(
+  table="versioncontrol*"
+  handler="nodata"
+)
+
 # Trim the image to selected projects
 
 whitelist.add_handler(
