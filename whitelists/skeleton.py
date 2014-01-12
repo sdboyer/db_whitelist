@@ -92,6 +92,11 @@ whitelist.add_handler(
   handler="nodata"
 )
 
+whitelist.add_handler(
+  table="role_activity"
+  handler="nodata"
+)
+
 # Trim the image to selected projects
 
 whitelist.add_handler(
