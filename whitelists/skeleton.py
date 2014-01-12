@@ -30,30 +30,6 @@ If you are working with the following functionality, you are expected to create 
   * User Profiles (profile_value)
 
 """
-
-#This is done in the base queries.
-
-"""
-# TODO: The following SQL is currently used for the Drupal.org-hosted Dev environments
-
-
-# http://drupalcode.org/project/infrastructure.git/blob/HEAD:/snapshot/common.dev.sql
-
-  DELETE FROM users WHERE status <> 1 AND uid <> 0 AND name <> 'bacon'; #delete blocked users
-  DELETE users_roles FROM users_roles LEFT JOIN users ON users_roles.uid = users.uid WHERE users.uid IS NULL; #remove user roles for deleted users
-
-
-# http://drupalcode.org/project/infrastructure.git/blob/HEAD:/snapshot/drupal.dev.sql
-
-  UPDATE users_access SET access = 280299600; #obfuscate last access
-  UPDATE users SET access = 280299600; #obfuscate last access
-  TRUNCATE blocked_ips; #don't show blocked IPs
-
-  -- Remove sensitive variables and profile data
-# No longer exists post migration
-  DELETE FROM profile_value WHERE fid IN (select fid FROM profile_field WHERE visibility in (1, 4));
-"""
-
 whitelist.update(
     table="users",
     columns=[
@@ -76,21 +52,34 @@ whitelist.add_handler(
     handler="nodata"
 )
 
-whitelist.add handler(
+whitelist.add_handler(
   table="flag_content",
   handler="nodata"
 )
 
-whitelist.add handler(
+whitelist.add_handler(
   table="tracker_node",
   handler="nodata"
 )
 
-
-whitelist.add handler(
+whitelist.add_handler(
   table="profile_value",
   handler="nodata"
 )
+
+# Trim the image to selected projects
+
+whitelist.add_handler(
+  table="search_api_db_project_issues_comments_comment_body_value",
+  handler="nodata"
+)
+
+whitelist.add_handler(
+  table="search_api_db_project_issues_body_value"
+  handler="nodata"
+)
+
+# Original queries to limit the size of the dataset
 
 cleanup = """
   -- Get rid of unpublished/blocked nodes, users, comments and related data in other tables.
