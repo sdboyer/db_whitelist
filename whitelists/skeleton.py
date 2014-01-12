@@ -95,7 +95,7 @@ whitelist.add_handler(
 )
 
 whitelist.add_handler()
-  table="project_usage_week_release"
+  table="project_usage*"
   handler="select_by_project"
 
 # Original queries to limit the size of the dataset
