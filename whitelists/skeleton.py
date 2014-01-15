@@ -42,94 +42,94 @@ whitelist.update(
         "_sanitize_timestamp:access",
     ])
 
-whitelist.add_handler(
+whitelist.set_handler(
     table="apachesolr_index_entities",
     handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
     table="apachesolr_index_entities_node",
     handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="flag_content",
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="flag_counts"
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="tracker_node",
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="profile_value",
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="search_api*",
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="versioncontrol*"
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="drupalorg_git_push*"
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="httpbl"
   handler="nodata"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="role_activity"
   handler="nodata"
 )
 
 # Trim the image to selected projects
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="field_data*"
   handler="select_by_project"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="field_revision*"
   handler="select_by_project"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="sampler_project*"
   handler="select_by_project"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="sampler_sampler*"
   handler="select_by_project"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="project_usage*"
   handler="select_by_project"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="pift*"
   handler="select_by_project"
 )
 
-whitelist.add_handler(
+whitelist.set_handler(
   table="taxonomy_index"
   handler="select_by_project"
 )

@@ -41,6 +41,7 @@ def generate_base_whitelist(table):
     columns2 = ('",\n        "').join(column_names)
     print """whitelist.add(
     table="{0}", 
+    handler=None,
     columns=[
         "{1}",
     ])
